@@ -11,14 +11,14 @@ sensor:
         id: ic1Volts
         accuracy_decimals: 1
       current:
-        name: ${ct1_name} Amps
+        name: ${ct1_name} Current
         id: ct1Amps
 # The max value for current that the meter can output is 65.535. If you expect to measure current over 65A,
 # divide the gain_ct by 2 (120A CT) or 4 (200A CT) and multiply the current and power values by 2 or 4 by uncommenting the filter below
 #        filters:
 #          - multiply: 2
       power:
-        name: ${ct1_name} Watts
+        name: ${ct1_name} Power
         id: ct1Watts
 #        filters:
 #          - multiply: 2
@@ -26,19 +26,19 @@ sensor:
       gain_ct: ${current_cal_ct1}
     phase_b:
       current:
-        name: ${ct2_name} Amps
+        name: ${ct2_name} Current
         id: ct2Amps
       power:
-        name: ${ct2_name} Watts
+        name: ${ct2_name} Power
         id: ct2Watts
       gain_voltage: ${voltage_cal1}
       gain_ct: ${current_cal_ct2}
     phase_c:
       current:
-        name: ${ct3_name} Amps
+        name: ${ct3_name} Current
         id: ct3Amps
       power:
-        name: ${ct3_name} Watts
+        name: ${ct3_name} Power
         id: ct3Watts
       gain_voltage: ${voltage_cal1}
       gain_ct: ${current_cal_ct3}
@@ -64,28 +64,28 @@ sensor:
 #       id: ic2Volts
 #       accuracy_decimals: 1
       current:
-        name: ${ct4_name} Amps
+        name: ${ct4_name} Current
         id: ct4Amps
       power:
-        name: ${ct4_name} Watts
+        name: ${ct4_name} Power
         id: ct4Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct4}
     phase_b:
       current:
-        name: ${ct5_name} Amps
+        name: ${ct5_name} Current
         id: ct5Amps
       power:
-        name: ${ct5_name} Watts
+        name: ${ct5_name} Power
         id: ct5Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct5}
     phase_c:
       current:
-        name: ${ct6_name} Amps
+        name: ${ct6_name} Current
         id: ct6Amps
       power:
-        name: ${ct6_name} Watts
+        name: ${ct6_name} Power
         id: ct6Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct6}
@@ -100,24 +100,85 @@ sensor:
     enable_offset_calibration: ${offset_calibration}
     enable_gain_calibration: ${gain_calibration}
 
-#Total Amps Main
-################
+# Per Channel Energy
   - platform: template
-    name: ${friendly_name} Total Amps Main
-    id: totalAmpsMain
-    lambda: return id(ct1Amps).state + id(ct2Amps).state + id(ct3Amps).state + id(ct4Amps).state + id(ct5Amps).state + id(ct6Amps).state ;
-    accuracy_decimals: 2
-    unit_of_measurement: A
-    device_class: current
-    update_interval: ${update_time}
-    
-#Total Watts Main
+    name: ${ct1_name} Energy
+    id: ct1Energy
+    power_id: ct1Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+  - platform: template
+    name: ${ct2_name} Energy
+    id: ct2Energy
+    power_id: ct2Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+  - platform: template
+    name: ${ct3_name} Energy
+    id: ct3Energy
+    power_id: ct3Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+  - platform: template
+    name: ${ct4_name} Energy
+    id: ct4Energy
+    power_id: ct4Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+  - platform: template
+    name: ${ct5_name} Energy
+    id: ct5Energy
+    power_id: ct5Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+  - platform: template
+    name: ${ct6_name} Energy
+    id: ct6Energy
+    power_id: ct6Watts
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    device_class: energy
+
+##Total Current Main
 #################
-  - platform: template
-    name: ${friendly_name} Total Watts Main
-    id: totalWattsMain
-    lambda: return id(ct1Watts).state + id(ct2Watts).state + id(ct3Watts).state + id(ct4Watts).state + id(ct5Watts).state + id(ct6Watts).state ;
-    accuracy_decimals: 1
-    unit_of_measurement: W
-    device_class: power
-    update_interval: ${update_time}
+#  - platform: template
+#    name: ${friendly_name} Total Current Main
+#    id: totalAmpsMain
+#    lambda: return id(ct1Amps).state + id(ct2Amps).state + id(ct3Amps).state + id(ct4Amps).state + id(ct5Amps).state + id(ct6Amps).state ;
+#    accuracy_decimals: 2
+#    unit_of_measurement: A
+#    device_class: current
+#    update_interval: ${update_time}
+#    
+##Total Power Main
+##################
+#  - platform: template
+#    name: ${friendly_name} Total Power Main
+#    id: totalWattsMain
+#    lambda: return id(ct1Watts).state + id(ct2Watts).state + id(ct3Watts).state + id(ct4Watts).state + id(ct5Watts).state + id(ct6Watts).state ;
+#    accuracy_decimals: 1
+#    unit_of_measurement: W
+#    device_class: power
+#    update_interval: ${update_time}

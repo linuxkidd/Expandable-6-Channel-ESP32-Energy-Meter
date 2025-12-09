@@ -11,28 +11,28 @@ sensor:
     id: ${addon3_id1}
     phase_a:
       current:
-        name: ${ct19_name} Amps
+        name: ${ct19_name} Current
         id: ct19Amps
       power:
-        name: ${ct19_name} Watts
+        name: ${ct19_name} Power
         id: ct19Watts
       gain_voltage: ${voltage_cal1}
       gain_ct: ${current_cal_ct19}
     phase_b:
       current:
-        name: ${ct20_name} Amps
+        name: ${ct20_name} Current
         id: ct20Amps
       power:
-        name: ${ct20_name} Watts
+        name: ${ct20_name} Power
         id: ct20Watts
       gain_voltage: ${voltage_cal1}
       gain_ct: ${current_cal_ct20}
     phase_c:
       current:
-        name: ${ct21_name} Amps
+        name: ${ct21_name} Current
         id: ct21Amps
       power:
-        name: ${ct21_name} Watts
+        name: ${ct21_name} Power
         id: ct21Watts
       gain_voltage: ${voltage_cal1}
       gain_ct: ${current_cal_ct21}
@@ -49,28 +49,28 @@ sensor:
     id: ${addon3_id2}
     phase_a:
       current:
-        name: ${ct22_name} Amps
+        name: ${ct22_name} Current
         id: ct22Amps
       power:
-        name: ${ct22_name} Watts
+        name: ${ct22_name} Power
         id: ct22Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct22}
     phase_b:
       current:
-        name: ${ct23_name} Amps
+        name: ${ct23_name} Current
         id: ct23Amps
       power:
-        name: ${ct23_name} Watts
+        name: ${ct23_name} Power
         id: ct23Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct23}
     phase_c:
       current:
-        name: ${ct24_name} Amps
+        name: ${ct24_name} Current
         id: ct24Amps
       power:
-        name: ${ct24_name} Watts
+        name: ${ct24_name} Power
         id: ct24Watts
       gain_voltage: ${voltage_cal2}
       gain_ct: ${current_cal_ct24}
@@ -80,9 +80,9 @@ sensor:
     enable_offset_calibration: ${offset_calibration}
     enable_gain_calibration: ${gain_calibration}
 
-#Total Amps AddOn3
+#Total Current AddOn3
   - platform: template
-    name: ${friendly_name} Total Amps Add-on3
+    name: ${friendly_name} Total Current Add-on3
     id: totalAmpsAddOn3
     lambda: return id(ct19Amps).state + id(ct20Amps).state + id(ct21Amps).state + id(ct22Amps).state + id(ct23Amps).state + id(ct24Amps).state ;
     accuracy_decimals: 2
@@ -90,9 +90,9 @@ sensor:
     device_class: current
     update_interval: ${update_time}
 
-#Total Watts AddOn3
+#Total Power AddOn3
   - platform: template
-    name: ${friendly_name} Total Watts Add-on3
+    name: ${friendly_name} Total Power Add-on3
     id: totalWattsAddOn3
     lambda: return id(ct19Watts).state + id(ct20Watts).state + id(ct21Watts).state + id(ct22Watts).state + id(ct23Watts).state + id(ct24Watts).state ;
     accuracy_decimals: 2
