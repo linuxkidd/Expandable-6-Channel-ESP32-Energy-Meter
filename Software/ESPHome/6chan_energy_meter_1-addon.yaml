@@ -177,44 +177,44 @@ sensor:
 #    name: Frequency 2
 
 ## Comment out to show amps and watts per meter board in Home Assistant
-- id: !extend totalAmpsMain
-  internal: true
-- id: !extend totalWattsMain
-  internal: true
-- id: !extend totalAmpsAddOn1
-  internal: true
-- id: !extend totalWattsAddOn1
-  internal: true
+#- id: !extend totalAmpsMain
+#  internal: true
+#- id: !extend totalWattsMain
+#  internal: true
+#- id: !extend totalAmpsAddOn1
+#  internal: true
+#- id: !extend totalWattsAddOn1
+#  internal: true
 
-#Total Amps
-###########
-- platform: template
-  name: ${friendly_name} Total Amps
-  id: totalAmps
-  lambda: return id(totalAmpsMain).state + id(totalAmpsAddOn1).state ;
-  accuracy_decimals: 2
-  unit_of_measurement: A
-  device_class: current
-  update_interval: ${update_time}
-   
-#Total Watts
+##Total Amps
 ############
-- platform: template
-  name: ${friendly_name} Total Watts
-  id: totalWatts
-  lambda: return id(totalWattsMain).state + id(totalWattsAddOn1).state ;
-  accuracy_decimals: 1
-  unit_of_measurement: W
-  device_class: power
-  update_interval: ${update_time}
-    
-#kWh
-####
-- platform: total_daily_energy
-  name: ${friendly_name} Total kWh
-  power_id: totalWatts
-  filters:
-    - multiply: 0.001
-  unit_of_measurement: kWh
-  device_class: energy
-  state_class: total_increasing
+#- platform: template
+#  name: ${friendly_name} Total Amps
+#  id: totalAmps
+#  lambda: return id(totalAmpsMain).state + id(totalAmpsAddOn1).state ;
+#  accuracy_decimals: 2
+#  unit_of_measurement: A
+#  device_class: current
+#  update_interval: ${update_time}
+#   
+##Total Watts
+#############
+#- platform: template
+#  name: ${friendly_name} Total Watts
+#  id: totalWatts
+#  lambda: return id(totalWattsMain).state + id(totalWattsAddOn1).state ;
+#  accuracy_decimals: 1
+#  unit_of_measurement: W
+#  device_class: power
+#  update_interval: ${update_time}
+#    
+##kWh
+#####
+#- platform: total_daily_energy
+#  name: ${friendly_name} Total kWh
+#  power_id: totalWatts
+#  filters:
+#    - multiply: 0.001
+#  unit_of_measurement: kWh
+#  device_class: energy
+#  state_class: total_increasing

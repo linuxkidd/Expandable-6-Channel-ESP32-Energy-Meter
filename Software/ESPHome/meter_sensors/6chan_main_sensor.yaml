@@ -103,7 +103,6 @@ sensor:
 # Per Channel Energy
   - platform: template
     name: ${ct1_name} Energy
-    id: ct1Energy
     power_id: ct1Watts
     state_class: "total_increasing"
     filters:
@@ -113,7 +112,6 @@ sensor:
 
   - platform: template
     name: ${ct2_name} Energy
-    id: ct2Energy
     power_id: ct2Watts
     state_class: "total_increasing"
     filters:
@@ -123,7 +121,6 @@ sensor:
 
   - platform: template
     name: ${ct3_name} Energy
-    id: ct3Energy
     power_id: ct3Watts
     state_class: "total_increasing"
     filters:
@@ -133,7 +130,6 @@ sensor:
 
   - platform: template
     name: ${ct4_name} Energy
-    id: ct4Energy
     power_id: ct4Watts
     state_class: "total_increasing"
     filters:
@@ -143,7 +139,6 @@ sensor:
 
   - platform: template
     name: ${ct5_name} Energy
-    id: ct5Energy
     power_id: ct5Watts
     state_class: "total_increasing"
     filters:
@@ -153,7 +148,6 @@ sensor:
 
   - platform: template
     name: ${ct6_name} Energy
-    id: ct6Energy
     power_id: ct6Watts
     state_class: "total_increasing"
     filters:
