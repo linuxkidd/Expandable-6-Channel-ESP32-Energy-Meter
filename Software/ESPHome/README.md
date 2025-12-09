@@ -82,7 +82,7 @@ Under `sensor:` add:
 ---
 
 ## Monitoring More Than 1 Voltage
-By default, all voltage channels are connected, and set up to monitor a single phase. [See here on what needs to be done with hardware if monitoring more than 1 voltage.](https://github.com/CircuitSetup/Expandable-6-Channel-ESP32-Energy-Meter/tree/master?tab=readme-ov-file#measuring-a-second-voltage)
+By default, all voltage channels are connected, and set up to monitor a single phase. [See here on what needs to be done with hardware if monitoring more than 1 voltage.](https://github.com/CircuitSetup/Expandable-6-Channel-ESP32-Energy-Meter/tree/main?tab=readme-ov-file#measuring-a-second-voltage)
 
 In the config, under `sensor:` add:
 ```
