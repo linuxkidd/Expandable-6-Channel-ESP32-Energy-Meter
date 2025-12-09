@@ -101,7 +101,7 @@ sensor:
     enable_gain_calibration: ${gain_calibration}
 
 # Per Channel Energy
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct1_name} Energy
     power_id: ct1Watts
     state_class: "total_increasing"
@@ -110,7 +110,7 @@ sensor:
     unit_of_measurement: kWh
     device_class: energy
 
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct2_name} Energy
     power_id: ct2Watts
     state_class: "total_increasing"
@@ -119,7 +119,7 @@ sensor:
     unit_of_measurement: kWh
     device_class: energy
 
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct3_name} Energy
     power_id: ct3Watts
     state_class: "total_increasing"
@@ -128,7 +128,7 @@ sensor:
     unit_of_measurement: kWh
     device_class: energy
 
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct4_name} Energy
     power_id: ct4Watts
     state_class: "total_increasing"
@@ -137,7 +137,7 @@ sensor:
     unit_of_measurement: kWh
     device_class: energy
 
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct5_name} Energy
     power_id: ct5Watts
     state_class: "total_increasing"
@@ -146,7 +146,7 @@ sensor:
     unit_of_measurement: kWh
     device_class: energy
 
-  - platform: template
+  - platform: total_daily_energy
     name: ${ct6_name} Energy
     power_id: ct6Watts
     state_class: "total_increasing"
